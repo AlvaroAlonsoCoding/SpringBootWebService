@@ -17,7 +17,7 @@ public class ProductPrice implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int rowId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="brand_id",referencedColumnName = "id")
@@ -40,10 +40,12 @@ public class ProductPrice implements Serializable {
     private String currency;
 
 
+
     /**
      * Replaces null values with default ones
      */
     @PrePersist
+    @PreUpdate
     public void initDefaultValues(){
         Optional.ofNullable(this.startDate)
                 .orElseGet(()-> this.startDate=new Date());
@@ -115,11 +117,11 @@ public class ProductPrice implements Serializable {
         this.currency = currency;
     }
 
-    public int getId() {
-        return id;
+    public int getRowId() {
+        return rowId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRowId(int rowId) {
+        this.rowId = rowId;
     }
 }

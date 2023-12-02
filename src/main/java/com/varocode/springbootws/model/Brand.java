@@ -2,6 +2,7 @@ package com.varocode.springbootws.model;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.NaturalId;
 
 /**
  * @author aap
@@ -15,6 +16,7 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NaturalId
     private String name;
 
     public int getId() {
