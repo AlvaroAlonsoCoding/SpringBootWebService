@@ -1,7 +1,7 @@
 # Demo SpringBoot REST api for simple GET requests #
 
 ## How to run ##
-	A JDK>=v17 and a valid JAVA_HOME set is need to run this app (SpringBoot 3.2.0)
+	A JDK>=v17 and a valid JAVA_HOME set is needed to run this app (SpringBoot 3.2.0)
  
 	Launch a new terminal in a folder of your choice
  	1 - Clone the code repository
