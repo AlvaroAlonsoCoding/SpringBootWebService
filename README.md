@@ -1,15 +1,17 @@
 # Demo SpringBoot REST api for simple GET requests #
 
 ## How to run ##
+	A JDK>=v17 and a valid JAVA_HOME set is need to run this app (SpringBoot 3.2.0)
+ 
 	Launch a new terminal in a folder of your choice
  	1 - Clone the code repository
   		git clone https://github.com/AlvaroAlonsoCoding/SpringBootWebService.git
-    	2 - Go into the downloaded repo
-     		cd SpringBootWebService
+    2 - Go into the downloaded repo
+     	cd SpringBootWebService
   	3 - Build and launch the integration tests over a mocked instance
    		mvnw.cmd test
-     	4 - Run the application with maven-sprintboot-plugin
-      		mvnw.cmd spring-boot:run
+	4 - Run the application with maven-sprintboot-plugin
+      	mvnw.cmd spring-boot:run
      
 ## Data Model ##
 	Embedded in memory H2 DDBB with CREATE-DROP schema handling
