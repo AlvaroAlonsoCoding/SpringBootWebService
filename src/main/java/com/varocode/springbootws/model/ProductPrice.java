@@ -3,7 +3,7 @@ package com.varocode.springbootws.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 /**
@@ -11,7 +11,7 @@ import java.util.Optional;
  * Model class representing PRICES ddbb table
  */
 @Entity
-@Table(name="PRICES")
+@Table(name = "PRICES")
 public class ProductPrice implements Serializable {
 
 
@@ -20,12 +20,12 @@ public class ProductPrice implements Serializable {
     private int rowId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="brand_id",referencedColumnName = "id")
+    @JoinColumn(name = "brand_id", referencedColumnName = "id")
     private Brand brand;
 
-    private Date startDate;
+    private LocalDateTime startDate;
 
-    private Date endDate;
+    private LocalDateTime endDate;
 
     private int priceList;
 
@@ -40,17 +40,16 @@ public class ProductPrice implements Serializable {
     private String currency;
 
 
-
     /**
      * Replaces null values with default ones
      */
     @PrePersist
     @PreUpdate
-    public void initDefaultValues(){
+    public void initDefaultValues() {
         Optional.ofNullable(this.startDate)
-                .orElseGet(()-> this.startDate=new Date());
+                .orElseGet(() -> this.startDate = LocalDateTime.now());
         Optional.ofNullable(this.endDate)
-                .orElseGet(()-> this.endDate=new Date());
+                .orElseGet(() -> this.endDate = LocalDateTime.now());
     }
 
     public Brand getBrand() {
@@ -61,19 +60,19 @@ public class ProductPrice implements Serializable {
         this.brand = brand;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 

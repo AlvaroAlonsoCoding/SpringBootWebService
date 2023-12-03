@@ -7,7 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author aap
@@ -21,10 +22,11 @@ public interface IProductPriceRepository extends CrudRepository<ProductPrice, In
 
     /**
      * Demo query function
+     * Ordered by priority (higher values first)
      */
     @Query("select p from ProductPrice p where p.productId=:productId and p.brand=:brand " +
-            "and p.startDate<:priceDate and p.endDate>=:priceDate")
-    public ProductPrice findProductPriceByDate(@Param("productId") int productId,
-                                        @Param("brand") Brand brand,
-                                        @Param(("priceDate")) Date priceDate);
+            "and p.startDate<:priceDate and p.endDate>=:priceDate order by p.priority DESC")
+    List<ProductPrice> findProductPriceByDate(@Param("productId") int productId,
+                                              @Param("brand") Brand brand,
+                                              @Param(("priceDate")) LocalDateTime priceDate);
 }
