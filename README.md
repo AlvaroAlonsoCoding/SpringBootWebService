@@ -7,8 +7,8 @@
  	Schema creation is delegated to Hibernate based on JPA model classes
  	Data is inserted after schema creation by the use of the data.sql script
  	Two tables within:
-   	BRAND - Containing brand data
-   	PRICES - Containing price data for a given product and time period
+   		BRAND - Containing brand data
+   		PRICES - Containing price data for a given product and time period
 
 ## Repository ##
   	Two repositories, one per ddbb table
